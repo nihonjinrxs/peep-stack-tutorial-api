@@ -6,7 +6,7 @@ defmodule Peepchat.RegistrationControllerTest do
   @valid_attrs %{
     email: "mike@example.com",
     password: "fqhi12hrrfasf",
-    password_confirmation: "fqhi12hrrfasf"
+    "password-confirmation": "fqhi12hrrfasf"
   }
 
   @invalid_attrs %{}
@@ -17,7 +17,7 @@ defmodule Peepchat.RegistrationControllerTest do
 
   test "creates and renders resource when data is valid", %{conn: conn} do
     conn = post conn, registration_path(conn, :create), %{data: %{
-      type: "user", attributes: @valid_attrs
+      type: "users", attributes: @valid_attrs
     }}
     assert json_response(conn, 201)["data"]["id"]
     assert Repo.get_by(User, %{email: @valid_attrs[:email]})
