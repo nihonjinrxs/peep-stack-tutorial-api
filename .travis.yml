@@ -3,9 +3,9 @@ elixir:
 - 1.3
 otp_release:
 - 18.2
-sudo: false
+sudo: required
 addons:
-  postgresql: '9.6'
+  postgresql: '9.5'
 before_script:
 - psql -c 'create database peepchat_test;' -U postgres
 deploy:
